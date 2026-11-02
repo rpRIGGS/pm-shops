@@ -171,3 +171,22 @@ RegisterNetEvent('qb-shops:server:openShop', function(data)
     })
     exports['qb-inventory']:OpenShop(src, shopName)
 end)
+
+-- Read-only delivery stop lookup for PM Jetsam Logistics.
+exports('GetDeliveryStop', function(shop)
+    local data = Config.Locations[shop]
+    if not data or not data.delivery then return nil end
+    return { x = data.delivery.x, y = data.delivery.y, z = data.delivery.z }
+end)
+
+-- Only the Jetsam resource may record a verified restock. No standalone cash reward.
+exports('RestockFromJetsam', function(shop)
+    local data = Config.Locations[shop]
+    if not data then return false end
+    if not data.useStock then return true end
+    local amount = math.random(10, 50)
+    for k in pairs(data.products) do data.products[k].amount += amount end
+    saveShopInv(shop, data.products)
+    TriggerClientEvent('qb-shops:client:SetShopItems', -1, shop, data.products)
+    return true
+end)
