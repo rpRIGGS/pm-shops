@@ -190,3 +190,15 @@ exports('RestockFromJetsam', function(shop)
     TriggerClientEvent('qb-shops:client:SetShopItems', -1, shop, data.products)
     return true
 end)
+
+-- Supply the existing qb-truckerjob client with server-defined shop stops.
+RegisterNetEvent('qb-shops:server:SetShopList', function()
+    local src = source
+    local stops = {}
+    for name, shop in pairs(Config.Locations) do
+        if shop.delivery then
+            stops[#stops + 1] = { name = name, coords = shop.delivery }
+        end
+    end
+    TriggerClientEvent('qb-truckerjob:client:SetShopList', src, stops)
+end)
