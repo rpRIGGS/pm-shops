@@ -15,3 +15,7 @@ This repository is a PowerMoves RP-specific fork of [qbcore-framework/qb-shops](
 shop stock limits, stock decrements, restock triggers, shop delivery locations, and Marlowe lobby display inventory.
 
 Documentation in this folder is planning/reference material, not a claim that the integrations are already implemented.
+
+## November 2026 implementation status
+
+Added GetDeliveryStop and RestockFromJetsam server exports, plus SetShopList event for the companion Jetsam trucker fork. The original resource name remains qb-shops. The new restock export avoids an additional shop delivery cash reward. Changes are committed but not yet tested in FiveM. Existing standalone shop delivery and payment events remain and should be reviewed before deployment. Future Marlowe wine and wholesale features are not implemented.
