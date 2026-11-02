@@ -21,3 +21,11 @@
 - [ ] Document deployment instructions and compatibility changes before moving to the development server.
 
 Priorities here are exploratory; do not interrupt ongoing pm-marlowe implementation without an explicit development decision.
+
+## Current implementation status
+
+- [x] Companion Jetsam delivery stop lookup and restocking exports.
+- [x] Shop-list delivery event.
+- [ ] Test stock persistence and integration on FiveM server.
+- [ ] Review legacy standalone delivery payment paths.
+- [ ] Future Marlowe wholesale and wine displays remain deferred.
