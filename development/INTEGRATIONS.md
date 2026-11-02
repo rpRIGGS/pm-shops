@@ -25,3 +25,7 @@ pm-marlowe (wine product catalog and warehouse replenishment); pm-jetsam-logisti
 - Installed QBCore and customized qb-inventory behavior on the development server.
 - Idempotency, partial fulfillment, offline restocking, and ownership of payment records.
 - Receiving location and delivery route configuration, including future Jetsam dispatch.
+
+## Implemented companion interface
+
+The qb-shops runtime resource now exposes server exports GetDeliveryStop(shop) and RestockFromJetsam(shop), plus the qb-shops:server:SetShopList event. The matching qb-truckerjob fork consumes these interfaces. RestockFromJetsam does not pay a separate delivery reward. This is committed code, not yet tested in FiveM. Marlowe integration is deferred.
